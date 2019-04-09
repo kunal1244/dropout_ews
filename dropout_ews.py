@@ -30,8 +30,8 @@ def train_predict(name, X_train, y_train, X_test, y_test, set_size_1, set_size_2
     #print table headers
     table_headers = ["tr_size", "tr_time","tr_ptime","tr_f1","tst_ptime","tst_f1"]
     row_format ="{:>12}" * (len(table_headers) + 1)
-    print "\n"
-    print row_format.format("model", *table_headers)
+    print ("\n")
+    print (row_format.format("model", *table_headers))
     
     sizes = (set_size_1, set_size_2, set_size_3)
     
@@ -62,13 +62,13 @@ def train_predict(name, X_train, y_train, X_test, y_test, set_size_1, set_size_2
         tst_f1 = f1_score(y_test.values, y_pred, pos_label='yes')
         
         #print the metrics to the table
-        print row_format.format(name + "_default", 
+        print (row_format.format(name + "_default", 
                                 size, 
                                 "{:.4f}".format(tr_time), 
                                 "{:.4f}".format(tr_ptime), 
                                 "{:.4f}".format(tr_f1), 
                                 "{:.4f}".format(tst_ptime), 
-                                "{:.4f}".format(tst_f1))
+                                "{:.4f}".format(tst_f1)))
 
     #calculate and print the tuned classifier metrics
     if clf_tuned != None:
@@ -98,10 +98,10 @@ def train_predict(name, X_train, y_train, X_test, y_test, set_size_1, set_size_2
             tst_f1 = f1_score(y_test.values, y_pred, pos_label='yes')
 
             #print the metrics to the table
-            print row_format.format(name + "_tuned", 
+            print (row_format.format(name + "_tuned", 
                                     size, 
                                     "{:.4f}".format(tr_time), 
                                     "{:.4f}".format(tr_ptime), 
                                     "{:.4f}".format(tr_f1), 
                                     "{:.4f}".format(tst_ptime), 
-                                    "{:.4f}".format(tst_f1))
+                                    "{:.4f}".format(tst_f1)))
